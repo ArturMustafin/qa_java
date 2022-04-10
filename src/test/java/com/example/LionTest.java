@@ -1,15 +1,13 @@
 package com.example;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 
 import java.util.List;
 
-public class LionTest extends BaseTest{
+public class LionTest extends BaseTest {
 
     @Mock
     Feline feline;
@@ -40,5 +38,23 @@ public class LionTest extends BaseTest{
 
         // Assert
         Assert.assertEquals(expectedFood, actualFood);
+    }
+
+    @Test(expected = Exception.class)
+    public void getExceptionOneCorrectValue() throws Exception {
+        new Lion("ошибка");
+    }
+
+    @Test
+    public void getExceptionTwoCorrectValue() {
+        String expectedText = "Используйте допустимые значения пола животного - самей или самка";
+        Exception exception = null;
+        try {
+            new Lion("ошибка");
+        } catch (Exception ex) {
+            exception = ex;
+        }
+        Assert.assertNotNull(exception);
+        Assert.assertEquals(expectedText, exception.getMessage());
     }
 }
