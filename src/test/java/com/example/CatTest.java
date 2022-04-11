@@ -7,7 +7,7 @@ import org.mockito.Mockito;
 
 import java.util.List;
 
-public class CatTest extends BaseTest{
+public class CatTest extends BaseTest {
 
     @Test
     public void getSoundReturnsCorrectValue() {
@@ -31,7 +31,6 @@ public class CatTest extends BaseTest{
         Cat cat = new Cat(new Feline());
         List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");
         Mockito.when(predator.eatMeat()).thenReturn(expectedFood);
-
 
         // Act
         List<String> actualFood = cat.getFood();

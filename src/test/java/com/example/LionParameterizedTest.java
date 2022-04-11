@@ -18,11 +18,12 @@ public class LionParameterizedTest {
 
     @Parameterized.Parameters
     public static Object[] getData() {
-        return new Object[][] {
-                { "Самец", true},
-                { "Самка", false},
+        return new Object[][]{
+                {"Самец", true},
+                {"Самка", false},
         };
     }
+
     @Test
     public void doesHaveManeReturnsCorrectValue() throws Exception {
         // Arrange
